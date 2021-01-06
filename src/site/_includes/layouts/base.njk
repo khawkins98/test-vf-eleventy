@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" class="vf-no-js">
+  <head>
+    {% render '@vf-no-js' -%}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="all" href="{{ '/css/styles.css' | url }}" />
+    <title>{{ title or (renderData and renderData.title) or siteConfig.siteInformation.title}}</title>
+    <link href="{{ siteConfig.siteInformation.url }}feed.xml" type="application/rss+xml" rel="alternate" title="{{ siteConfig.siteInformation.title }} RSS Feed">
+    {% render '@vf-favicon' -%}
+
+    <!-- Descriptive meta -->
+    <meta name="title" content="{{ title or (renderData and renderData.title) or siteConfig.siteInformation.title}}">
+    <meta name="author" content="{{ meta.author }}">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="{{ meta.keywords }}">
+    <meta name="description" content="{{ meta.description }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ siteConfig.siteInformation.url }}{{ page.url.slice(1) }}">
+    <meta property="og:title" content="{{ title or (renderData and renderData.title) or siteConfig.siteInformation.title}}">
+    <meta property="og:description" content="{{ meta.description }}">
+    {% if meta.image -%}
+    <meta property="og:image" content="{{ meta.image | url }}">
+    {%- endif %}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="{{ siteConfig.siteInformation.url }}{{ page.url.slice(1) }}">
+    <meta property="twitter:title" content="{{ title or (renderData and renderData.title) or siteConfig.siteInformation.title}}">
+    <meta property="twitter:description" content="{{ meta.description }}">
+    {% if meta.image -%}
+    <meta property="twitter:image" content="{{ meta.image | url }}">
+    {%- endif %}
+
+  </head>
+  <body class="{{ bodyClass }} vf-body">
+    <header class="vf-global-header">
+      <div class="vf-global-header__inner">
+        {% render '@vf-logo', {href:  'https://stable.visual-framework.dev/' | url, sreen_reader_text: 'Visual Framework 2.0', image: siteConfig.siteInformation.url + 'assets/vf-logo/assets/logo.svg' } %}
+        <nav class="vf-navigation vf-navigation--global">
+          <ul class="vf-navigation__list | vf-list--inline">
+            <li class="vf-navigation__item">
+              <a href="https://stable.visual-framework.dev/" class="vf-navigation__link">About the Visual Framework</a>
+            </li>
+            <li class="vf-navigation__item">
+              <a href="https://stable.visual-framework.dev/documentation" class="vf-navigation__link">Documentation</a>
+            </li>
+            <li class="vf-navigation__item">
+              <a href="https://join.slack.com/t/visual-framework/shared_invite/enQtNDAxNzY0NDg4NTY0LWFhMjEwNGY3ZTk3NWYxNWVjOWQ1ZWE4YjViZmY1YjBkMDQxMTNlNjQ0N2ZiMTQ1ZTZiMGM4NjU5Y2E0MjM3ZGQ" class="vf-navigation__link">Help, chat</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="vf-grid">
+      <div>
+        {{ content | safe }}
+      </div>
+    </div>
+    {% include "footer.njk" %}
+  </body>
+</html>
