@@ -97,10 +97,10 @@ module.exports = function(config) {
       data: "_data"
     },
     templateFormats : [
-      "njk", "md", // note that .md files will also be parsed with njk processor
+      "njk", // note that .md files will also be parsed with njk processor
       "css" // passthrough file copying for static assets
     ],
-    htmlTemplateEngine : ["njk", "md"],
+    htmlTemplateEngine : ["njk"],
     markdownTemplateEngine : "njk",
     passthroughFileCopy: true,
     pathPrefix: "/vf-eleventy/" // if your site is deployed to a sub-url, otherwise comment out

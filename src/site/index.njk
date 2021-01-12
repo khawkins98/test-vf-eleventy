@@ -2,7 +2,7 @@
 subtitle: No homepage, yet.
 date: 2018-08-22 12:24:50
 layout: layouts/base.njk
-templateEngineOverride: njk, md
+templateEngineOverride: njk
 meta:
   author: Page Author
   image: your-image-here.png
@@ -10,12 +10,74 @@ meta:
   keywords: "Tags"
 ---
 
+
+
+<link rel="stylesheet" href="https://dev.assets.emblstatic.net/vf/develop/assets/ebi-header-footer/ebi-header-footer.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://dev.ebi.emblstatic.net/web_guidelines/EBI-Icon-fonts/v1.3/fonts.css" type="text/css" media="all" />
+
 {% set context = homepageIntro %}
+{% set years_list = hall_of_fame %}
 {% set vf_intro_heading = siteConfig.siteInformation.title %}
 {% set vf_intro_lede = siteConfig.siteInformation.short_description %}
-{% include containers.intro %}
 
-<section class="embl-grid embl-grid--has-centered-content">
- test
-</div>
+<script>
+  console.log("in index file")
+</script>
+
+<div>
+<header id="masthead-black-bar" class="clearfix masthead-black-bar | ebi-header-footer vf-content vf-u-fullbleed">
+</header>
+<section class="vf-hero
+    vf-hero--primary vf-hero--1200   | vf-u-fullbleed" style="--vf-hero--bg-image-size: auto 28.5rem  ">
+    <div class="vf-hero__content | vf-stack vf-stack--400 ">
+      <h2 class="vf-hero__heading">
+        About the Hentze group!
+      </h2>
+      <p class="vf-hero__subheading">an example of some ancillary text</p>
+      <p class="vf-hero__text">The Hentze group combines biochemical and <a href="JavaScript:Void(0);">systems–level approaches</a> to investigate the connections between <a href="JavaScript:Void(0);">gene expression</a> and <a href="JavaScript:Void(0);">cell metabolism</a>, and their roles in human disease.
+      </p>
+    </div>
 </section>
+
+{# {{data | dump}} #}
+
+{% render '@vf-link-list', {
+  "component-type": "block",
+  "title": "Latest Posts",
+  "list": [
+    {
+      "text": "VF’s top social media posts of 2017 and what we learned from them",
+      "link_list_href": "JavaScript:Void(0);"
+    },
+    {
+      "text": "The VF Imaging Centre all about visibility",
+      "link_list_href": "JavaScript:Void(0);"
+    },
+    {
+      "text": "Press office sprint 1 journalist personas",
+      "link_list_href": "JavaScript:Void(0);"
+    },
+    {
+      "text": "A colour scheme for VF",
+      "link_list_href": "JavaScript:Void(0);",
+      "meta": "Updated 14th February 2018"
+    },
+    {
+      "text": "New team members",
+      "link_list_href": "JavaScript:Void(0);"
+    }
+  ]
+} %}
+
+<footer>
+  <div id="global-footer" class="global-footer | ebi-header-footer vf-content">
+    <nav id="global-nav-expanded" class="global-nav-expanded row">
+      <!-- Footer will be automatically inserted by footer.js -->
+    </nav>
+    <section id="ebi-footer-meta" class="ebi-footer-meta row">
+      <!-- Footer meta will be automatically inserted by footer.js -->
+    </section>
+  </div>
+</footer>
+
+<script defer="defer" src="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.3/js/script.js"></script>

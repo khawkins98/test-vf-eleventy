@@ -45,7 +45,11 @@ button {
 
 @import 'embl-grid/embl-grid.scss';
 
+
+
 /* All Visual Framework Elements */
+
+@import "@visual-framework/vf-hero/index.scss";
 
 @import 'vf-badge/vf-badge.scss';
 @import 'vf-collapse/vf-collapse.scss';
@@ -81,7 +85,6 @@ button {
 @import 'vf-page-header/vf-page-header.scss';
 @import 'vf-link-list/vf-link-list.scss';
 @import 'vf-header/vf-header.scss';
-@import 'vf-hero/vf-hero.scss';
 
 @import 'vf-lede/vf-lede.scss';
 
@@ -153,7 +156,7 @@ button {
 /* EBI Specific components */
 // ebi-header-footer is not enabled by default
 // this may change as more EBI sites move to "pure" sVF 2.0
-// @import 'ebi-header-footer/ebi-header-footer.scss';
+@import "@visual-framework/ebi-header-footer/index.scss";
 @import 'ebi-vf1-integration/ebi-vf1-integration.scss';
 
 /* All Visual Framework Utility and high-specificity components */

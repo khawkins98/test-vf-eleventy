@@ -6,3 +6,20 @@ homepageIntro:
 home_about_section_header:
   href: /about
   section_title: About EMBL
+
+
+hall_of_fame:
+  '2020':
+  - name: Nitin Jadhav
+    profile_link: http://google.com
+  - name: John Doe
+    profile_link: http://google.com
+  - name: Jane doe
+    profile_link: http://google.com
+  '2019':
+  - name: Elon Musk
+    profile_link: http://google.com
+  - name: John Doe
+    profile_link: http://google.com
+  - name: Jane doe
+    profile_link: http://google.com
