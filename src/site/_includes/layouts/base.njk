@@ -36,6 +36,7 @@
 
   </head>
   <body class="{{ bodyClass }} vf-body">
-        {{ content | safe }}
+    {{ content | safe }}
+    {% include 'footer.njk' %}
   </body>
 </html>

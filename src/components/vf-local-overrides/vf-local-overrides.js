@@ -1,4 +1,3 @@
-console.log('in overrides..');
 // vf-local-overrides
 
 // Don't need JS? Then feel free to delete this file.
@@ -28,6 +27,7 @@ console.log('in overrides..');
   */
  function vfLocalOverrides(firstPassedVar) {
    firstPassedVar = firstPassedVar || 'defaultVal';
+   console.log('in overrides..');
    console.log('vfLocalOverrides invoked with a value of', firstPassedVar);
 }
 
@@ -44,16 +44,21 @@ console.log('in overrides..');
     }]
  */
 
-const HALL_OF_FAME_SPREADSHEET_URL = "https://spreadsheets.google.com/feeds/cells/1PzqB89rAN-mg0dWpiXw7cBuETNjPz3IYdTXXsph_9Ig/1/public/full?alt=json";
 
-async function getHallOfFameContributors(){
-  return await fetch(HALL_OF_FAME_SPREADSHEET_URL)
+function getHallOfFameContributors(){
+  const HALL_OF_FAME_SPREADSHEET_URL = "https://spreadsheets.google.com/feeds/cells/1PzqB89rAN-mg0dWpiXw7cBuETNjPz3IYdTXXsph_9Ig/1/public/full?alt=json";
+  fetch(HALL_OF_FAME_SPREADSHEET_URL)
     .then((data) => data.json())
     .then(result => parseGoogleSheetResult(result, 3));
 }
 
-
 const parseGoogleSheetResult = (response, columnCount = 1) => {
+  /* generator to generator array chunks */
+  const arrayChunks = (arr, size) =>
+  Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+    arr.slice(i * size, i * size + size)
+  );
+
   if (!response?.feed?.entry || columnCount <= 0) {
     throw new Error("Incorrect input to function!");
   }
@@ -75,17 +80,9 @@ const parseGoogleSheetResult = (response, columnCount = 1) => {
     }
     return o;
   });
-
+  console.log('jsonData',jsonData)
   return jsonData;
 };
-
-/* generator to generator array chunks */
-function* arrayChunks(array, chunkSize) {
-  for (let i = 0;i < array.length;i += chunkSize) {
-    yield array.slice(i, i + chunkSize);
-  }
-}
-
 
 
 
@@ -93,7 +90,7 @@ function* arrayChunks(array, chunkSize) {
 // vfLocalOverrides();
 
 // By default your component should be usable with js imports
-// export { vfLocalOverrides, getHallOfFameContributors };
+export { vfLocalOverrides, getHallOfFameContributors, parseGoogleSheetResult };
 //
 // // You should also import it at ./components/vf-core/scripts.js
 // // import { vfcomponentName } from '../components/raw/vf-component/vf-component.js';

@@ -10,8 +10,8 @@
 import { vfBanner } from "vf-banner/vf-banner";
 vfBanner();
 
-import { vfMastheadSetStyle } from "vf-masthead/vf-masthead";
-vfMastheadSetStyle();
+// import { vfMastheadSetStyle } from "vf-masthead/vf-masthead";
+// vfMastheadSetStyle();
 
 import { vfGaIndicateLoaded } from "vf-analytics-google/vf-analytics-google";
 let vfGaTrackOptions = {
@@ -22,8 +22,8 @@ vfGaIndicateLoaded(vfGaTrackOptions);
 import { vfTabs } from "vf-tabs/vf-tabs";
 vfTabs();
 
-import { vfTree } from "vf-tree/vf-tree";
-vfTree();
+// import { vfTree } from "vf-tree/vf-tree";
+// vfTree();
 
 // import { vfFormFloatLabels } from 'vf-form__core/assets/vf-form__float-labels.js';
 // vfFormFloatLabels();
@@ -53,3 +53,8 @@ vfTree();
 // emblNotifications();
 
 // No default invokation
+
+// Import local components
+import { vfLocalOverrides, getHallOfFameContributors } from 'vf-local-overrides/vf-local-overrides';
+vfLocalOverrides();
+getHallOfFameContributors();
