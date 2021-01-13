@@ -61,6 +61,7 @@
     "@visual-framework/vf-table": "1.1.2",
     "@visual-framework/vf-tabs": "1.1.1",
     "@visual-framework/vf-text": "1.0.2",
+    "@visual-framework/vf-u-fullbleed": "^1.2.2",
     "@visual-framework/vf-utility-classes": "2.0.0",
     "gulp-image-resize": "0.13.1",
     "html-minifier": "4.0.0",
